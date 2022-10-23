@@ -1,9 +1,0 @@
-orangepipc:overlay:# dmesg | grep -E 'ili9341'                         <main ✗>
-[    1.543579] ili9341@0 enforce active low on chipselect handle
-[   11.884637] fb_ili9341: module is from the staging directory, the quality is unknown, you have been warned.
-[   11.930957] SPI driver fb_ili9341 has no spi_device_id for ilitek,ili9341
-[   11.931170] fb_ili9341 spi0.0: fbtft_property_value: buswidth = 8
-[   11.931185] fb_ili9341 spi0.0: fbtft_property_value: debug = 0
-[   11.931193] fb_ili9341 spi0.0: fbtft_property_value: rotate = 90
-[   11.931203] fb_ili9341 spi0.0: fbtft_property_value: fps = 25
-[   12.295989] graphics fb0: fb_ili9341 frame buffer, 320x240, 150 KiB video memory, 16 KiB buffer memory, fps=25, spi0.0 at 16 MHz
