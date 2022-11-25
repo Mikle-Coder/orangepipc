@@ -1,0 +1,8 @@
+mkdir -p /usr/share/dotnet && tar zxf dotnet-sdk-6.0.403-linux-arm.tar.gz -C /usr/share/dotnet
+
+Это мб и не понадобится
+	export DOTNET_ROOT=/usr/share/dotnet
+	export PATH=$PATH:/usr/share/dotnet
+
+
+ln -sf /usr/share/dotnet/dotnet /usr/bin/dotnet
