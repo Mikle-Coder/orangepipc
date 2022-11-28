@@ -1,9 +1,6 @@
 from tkinter import *
-from tkinter import messagebox
  
 window = Tk()
-window.title('Тестовое приложение')
-window.geometry('150x80')
 window.wm_attributes('-fullscreen','true')
 
 frame = Frame(
@@ -36,7 +33,6 @@ cal_btn = Button(
    text=textArray[indexOfArray],
    command=calculate_bmi
 )
-
 cal_btn.grid(row=5, column=2)
  
 window.mainloop()
