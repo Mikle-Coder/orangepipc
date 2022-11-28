@@ -4,7 +4,7 @@ from tkinter import messagebox
 window = Tk()
 window.title('Тестовое приложение')
 window.geometry('150x80')
-window.eval('tk::PlaceWindow . center')
+window.wm_attributes('-fullscreen','true')
 
 frame = Frame(
    window,
