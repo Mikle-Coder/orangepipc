@@ -3,6 +3,7 @@ from tkinter import *
 import  tkinter as tk
 import os
 from datetime import datetime
+from w1thermsensor import W1ThermSensor as Sen
 import Classes
 
 class GUI:
@@ -28,13 +29,15 @@ class GUI:
     signalform_label = None
     signalform_value = ""
 
-    path = os.getcwd() + r"\Images"
+    path = os.getcwd() + r"/Images"
     images=[
-        PhotoImage(file = path + r"\1-sin.png"),
-        PhotoImage(file = path + r"\2-tri.png"),
-        PhotoImage(file = path + r"\3-rect.png"),
-        PhotoImage(file = path + r"\4-saw.png"),
+        PhotoImage(file = path + r"/1-sin.png"),
+        PhotoImage(file = path + r"/2-tri.png"),
+        PhotoImage(file = path + r"/3-rect.png"),
+        PhotoImage(file = path + r"/4-saw.png"),
         ]
+    
+    temperature_sensor = Sen()
 
     label_info = tk.Label(root)
     label_info.pack(side=tk.BOTTOM, fill="x")
@@ -45,6 +48,7 @@ class GUI:
     def __init__(self):
         self.init_all()
         GUI.notebook.pack()
+        self.show_info()
         GUI.root.mainloop()
 
     def signalform_init(self):
@@ -73,50 +77,16 @@ class GUI:
         temperature = Classes.TabModel('Тем-ра', 'Температура', GUI.notebook, GUI.colors, Classes.ParamRange(40, 70, 5), "temperature")
         frequency = Classes.TabModel("Час-та", "Частота", GUI.notebook, GUI.colors, Classes.ParamRange(20, 40, 5), "frequency")
         timer = Classes.TabModel("Таймер", "Таймер обратного отсчета", GUI.notebook, GUI.colors, Classes.ParamRange(0, 10, 1), "time")
-        self.show_info()
 
-    time_label = tk.Label(label_info)
-    time_label.pack(side=tk.RIGHT)
+    #time_label = tk.Label(label_info)
+    #time_label.pack(side=tk.RIGHT)
+    
+    temperature_label = tk.Label(label_info)
+    temperature_label.pack(side=tk.RIGHT)
 
     def show_info(self):
-        current_time = datetime.now().strftime("%H:%M:%S")
-        GUI.time_label.config(text=current_time)
-        GUI.time_label.after(1000, self.show_info)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        #current_time = datetime.now().strftime("%H:%M:%S")
+        #GUI.time_label.config(text=current_time)
+        current_temperature = round(float(GUI.temperature_sensor.get_temperature()),1)
+        GUI.temperature_label.config(text=str(current_temperature) + " ℃")
+        GUI.temperature_label.after(1000, self.show_info)
