@@ -1,9 +1,10 @@
 from tkinter.ttk import *
 from tkinter import *
+import  tkinter as tk
 import os
 import time
 
-
+import GUI
 
 def Format(value, formatStyle):
     if(formatStyle == "time" ):
@@ -33,13 +34,13 @@ class TabModel:
         self.label = Label(self.frame, text=Format(self.value, formatStyle), background=colors[0], font=35)
         self.label.grid(row=1, columnspan=2,sticky=S)
 
-        self.control = Control(self.frame, self.value, self.label, colors, paramRange, formatStyle)
+        self.control = Control(self.frame, self.value, self.label, tabtext ,colors, paramRange, formatStyle)
 
 
 
 class Control:
 
-    def __init__(self, frame, value, label, colors, paramRange, formatStyle):
+    def __init__(self, frame, value, label, labeltext, colors, paramRange, formatStyle):
         self.holding_trigger = False
         self.running = False
         self.jobid = None
@@ -48,6 +49,11 @@ class Control:
         self.value = value
         self.label = label
         self.formatStyle = formatStyle
+        self.labeltext = labeltext
+
+        self.label_info = tk.Label(GUI.GUI.params_label_info)
+        self.label_info.pack(side=tk.LEFT)
+        self.label_info.configure(text=self.labeltext + ": " + Format(self.value, self.formatStyle))
 
         self.paramRange = paramRange
 
@@ -72,6 +78,7 @@ class Control:
             self.value -= self.paramRange.Pitch
 
         self.label.configure(text = Format(self.value, self.formatStyle))
+        self.label_info.configure(text =self.labeltext + ": " + Format(self.value, self.formatStyle))
 
         time = 500
         if(self.holding_trigger==True):
