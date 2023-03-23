@@ -97,6 +97,9 @@ class Control(QObject):
         self.view.timer_plus_button.pressed.connect(lambda : self.model.timer_param.increment())
         self.view.timer_minus_button.pressed.connect(lambda : self.model.timer_param.dicrement())
 
+        self.view.save_parameter_file_button.clicked.connect(lambda: self.save_mode())
+        self.view.ok_button.clicked.connect(lambda: self.view.hide_save_file_layout())
+
     def create_nav_button_click_enents(self):
         self.view.signal_nav_button.clicked.connect(lambda: self.swicth_page(self.view.signal_page, self.view.signal_nav_button))
         self.view.frequyncy_and_power_nav_button.clicked.connect(lambda: self.swicth_page(self.view.frequyncy_and_power_page, self.view.frequyncy_and_power_nav_button))
@@ -176,5 +179,14 @@ class Control(QObject):
             elif launch_button == LaunchState.ON:
                 self.start()
 
-            self.view.set_launch_button(launch_button)   
+            self.view.set_launch_button(launch_button)
+    
+    def save_mode(self):
+        self.view.unhide_save_file_layout()
+        self.model.save_mode()
+
+    def load_mode():
+        pass
+
+
             

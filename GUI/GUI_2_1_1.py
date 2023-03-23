@@ -14,7 +14,6 @@ from PySide2.QtWidgets import *
 from custom_qstacked_widgets import *
 from MyButton import MyButton, Geometry
 from Enums import BUTTON_STATE, SIZE_CHANGE, LaunchState
-import time
 
 
 class Ui_MainWindow(object):
@@ -168,7 +167,7 @@ class Ui_MainWindow(object):
         self.signal_buttons_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_7 = QVBoxLayout(self.signal_buttons_frame)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.signal_button_0 = MyButton(self.signal_buttons_frame)
+        self.signal_button_0 = MyButton(loop = False, parent = self.signal_buttons_frame)
         self.signal_button_0.setObjectName(u"signal_button_0")
         self.signal_button_0.setEnabled(True)
         sizePolicy.setHeightForWidth(self.signal_button_0.sizePolicy().hasHeightForWidth())
@@ -189,7 +188,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_7.addWidget(self.signal_button_0)
 
-        self.signal_button_1 = MyButton(self.signal_buttons_frame)
+        self.signal_button_1 = MyButton(loop = False, parent = self.signal_buttons_frame)
         self.signal_button_1.setObjectName(u"signal_button_1")
         self.signal_button_1.setEnabled(True)
         sizePolicy.setHeightForWidth(self.signal_button_1.sizePolicy().hasHeightForWidth())
@@ -207,7 +206,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_7.addWidget(self.signal_button_1)
 
-        self.signal_button_2 = MyButton(self.signal_buttons_frame)
+        self.signal_button_2 = MyButton(loop = False, parent = self.signal_buttons_frame)
         self.signal_button_2.setObjectName(u"signal_button_2")
         self.signal_button_2.setEnabled(True)
         sizePolicy.setHeightForWidth(self.signal_button_2.sizePolicy().hasHeightForWidth())
@@ -225,7 +224,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_7.addWidget(self.signal_button_2)
 
-        self.signal_button_3 = MyButton(self.signal_buttons_frame)
+        self.signal_button_3 = MyButton(loop = False, parent = self.signal_buttons_frame)
         self.signal_button_3.setObjectName(u"signal_button_3")
         self.signal_button_3.setEnabled(True)
         sizePolicy.setHeightForWidth(self.signal_button_3.sizePolicy().hasHeightForWidth())
@@ -961,54 +960,54 @@ class Ui_MainWindow(object):
         self.save_file_layout = QFrame(self.pages_widget)
         self.save_file_layout.setObjectName(u"save_file_layout")
         self.save_file_layout.setEnabled(True)
-        self.save_file_layout.setGeometry(QRect(0, 230, 320, 240))
+        self.save_file_layout.setGeometry(QRect(0, 0, 320, 240))
         self.save_file_layout.setStyleSheet(u"QFrame {\n"
 "	background-color: qlineargradient(spread:reflect, x1:0.559, y1:1, x2:0.548, y2:0, stop:0 rgba(39, 58, 89, 200), stop:1 rgba(27, 39, 65, 200));\n"
 "}")
         self.save_file_layout.setFrameShape(QFrame.StyledPanel)
         self.save_file_layout.setFrameShadow(QFrame.Raised)
-        self.frame = QFrame(self.save_file_layout)
-        self.frame.setObjectName(u"frame")
-        self.frame.setEnabled(True)
-        self.frame.setGeometry(QRect(30, 30, 260, 180))
-        self.frame.setStyleSheet(u"QFrame{\n"
+        self.save_file_frame = QFrame(self.save_file_layout)
+        self.save_file_frame.setObjectName(u"save_file_frame")
+        self.save_file_frame.setEnabled(True)
+        self.save_file_frame.setGeometry(QRect(30, 30, 260, 180))
+        self.save_file_frame.setStyleSheet(u"QFrame{\n"
 "	background-color: rgb(46, 69, 107);\n"
 "	border: 3px solid rgb(62, 93, 143);\n"
 "	border-radius: 10px \n"
 "}\n"
 "")
-        self.frame.setFrameShape(QFrame.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_8 = QVBoxLayout(self.frame)
+        self.save_file_frame.setFrameShape(QFrame.StyledPanel)
+        self.save_file_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_8 = QVBoxLayout(self.save_file_frame)
         self.verticalLayout_8.setSpacing(12)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.timer_value_2 = QLabel(self.frame)
-        self.timer_value_2.setObjectName(u"timer_value_2")
-        self.timer_value_2.setEnabled(True)
+        self.save_file_label = QLabel(self.save_file_frame)
+        self.save_file_label.setObjectName(u"save_file_label")
+        self.save_file_label.setEnabled(True)
         font7 = QFont()
         font7.setFamily(u"MS Serif")
         font7.setPointSize(18)
-        self.timer_value_2.setFont(font7)
-        self.timer_value_2.setStyleSheet(u"QLabel{\n"
+        self.save_file_label.setFont(font7)
+        self.save_file_label.setStyleSheet(u"QLabel{\n"
 "	background-color: none;\n"
 "	font-size: 18pt;\n"
 "	color: rgb(255, 255, 255);\n"
 "	border: none\n"
 "}\n"
 "")
-        self.timer_value_2.setAlignment(Qt.AlignCenter)
+        self.save_file_label.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_8.addWidget(self.timer_value_2)
+        self.verticalLayout_8.addWidget(self.save_file_label)
 
-        self.signal_button_4 = QPushButton(self.frame)
-        self.signal_button_4.setObjectName(u"signal_button_4")
-        self.signal_button_4.setEnabled(True)
-        sizePolicy.setHeightForWidth(self.signal_button_4.sizePolicy().hasHeightForWidth())
-        self.signal_button_4.setSizePolicy(sizePolicy)
-        self.signal_button_4.setMinimumSize(QSize(1, 1))
-        self.signal_button_4.setFont(font1)
-        self.signal_button_4.setFocusPolicy(Qt.NoFocus)
-        self.signal_button_4.setStyleSheet(u"QPushButton {\n"
+        self.ok_button = QPushButton(self.save_file_frame)
+        self.ok_button.setObjectName(u"ok_button")
+        self.ok_button.setEnabled(True)
+        sizePolicy.setHeightForWidth(self.ok_button.sizePolicy().hasHeightForWidth())
+        self.ok_button.setSizePolicy(sizePolicy)
+        self.ok_button.setMinimumSize(QSize(1, 1))
+        self.ok_button.setFont(font1)
+        self.ok_button.setFocusPolicy(Qt.NoFocus)
+        self.ok_button.setStyleSheet(u"QPushButton {\n"
 "	background-color: rgb(62, 93, 143);\n"
 "	border: none;\n"
 "	border-radius: 10px;\n"
@@ -1018,10 +1017,11 @@ class Ui_MainWindow(object):
 "QPushButton:pressed{\n"
 "	background-color: rgb(84, 126, 193);\n"
 "}")
-        self.signal_button_4.setIconSize(QSize(0, 45))
+        self.ok_button.setIconSize(QSize(0, 45))
 
-        self.verticalLayout_8.addWidget(self.signal_button_4)
+        self.verticalLayout_8.addWidget(self.ok_button)
 
+        #MainWindow.setCentralWidget(self.pages_widget)
         self.pages.raise_()
         self.menu_frame.raise_()
         self.sensor_temperature_label.raise_()
@@ -1078,15 +1078,39 @@ class Ui_MainWindow(object):
         self.sensor_temperature_label.setText(QCoreApplication.translate("MainWindow", u"125 \u00b0C", None))
         self.sensor_pressure_label.setText(QCoreApplication.translate("MainWindow", u"1000 hPa", None))
         self.current_countdown_label.setText(QCoreApplication.translate("MainWindow", u"01:15:00", None))
-        self.timer_value_2.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0435\u0436\u0438\u043c F1 \u0441\u043e\u0445\u0440\u0430\u043d\u0451\u043d\n"
+        self.save_file_label.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0435\u0436\u0438\u043c F1 \u0441\u043e\u0445\u0440\u0430\u043d\u0451\u043d\n"
 "----------------\n"
 "13.03.2023 12:07:09", None))
-        self.signal_button_4.setText(QCoreApplication.translate("MainWindow", u"OK", None))
+        self.ok_button.setText(QCoreApplication.translate("MainWindow", u"OK", None))
     # retranslateUi
 
 ################################################################################################################################################
 ################################################################################################################################################
+#   При загрузке нового шаблона из QtDesinger в python код, добавить код ниже импортировать билиотеки из прошлой версии, и выполнить несколько действий
+#       Кнопки с фрагментом 'us_button = QPushButton(' заменить на 'us_button = MyButton('
+#       Кнопки с фрагментом '_nav_button = QPushButton(' заменить на '_nav_button = MyButton(loop = False, parent = '
+#       Кнопки с фрагментом 'launch_button = QPushButton(' заменить на 'launch_button = MyButton(loop = False, parent = '
+#       Кнопки с регулярным выражением '\d = QPushButton\(' заменить на '\d =MyButton(loop = False, parent = ' заменив \d на оригинальную цифру
+#       Строку с фрагментом 'setCentralWidget' закоментировать или удалить вовсе
+
         self.__set_animation_slide()
+        self.hide_save_file_layout()
+
+    def hide_save_file_layout(self):
+        self.save_file_layout.setEnabled(False)
+        self.save_file_layout.setHidden(True)
+
+    def unhide_save_file_layout(self):
+        self.save_file_layout.setEnabled(True)
+        self.save_file_layout.setHidden(False)
+
+#     def hide_load_file_layout(self):
+#         self.load_file_layout.setEnabled(False)
+#         self.load_file_layout.setHidden(True)
+
+#     def unhide_load_file_layout(self):
+#         self.load_file_layout.setEnabled(True)
+#         self.load_file_layout.setHidden(False)
 
     def set_button_state(self, button : MyButton, state : BUTTON_STATE):
 
@@ -1130,9 +1154,6 @@ class Ui_MainWindow(object):
 
     def set_launch_button(self, launch_button : LaunchState):   
         self.launch_button.setStyleSheet(launch_button.value)
-
-
-
 
 
 

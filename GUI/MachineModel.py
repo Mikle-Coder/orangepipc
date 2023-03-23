@@ -10,7 +10,6 @@ from Parameter import *
 from Enums import LaunchState, HeaterState
 from MyButton import MyButton
 
-
 if sys.platform == 'win32':
     from MixerTest import Mixer
     from SensorTest import TemperatureSensor#, PressureSensor
@@ -33,14 +32,14 @@ class Model():
         self.current_page = QObject()
         self.current_signal_button = MyButton(loop=False)
 
-
         self.signal_generator = SignalGenerator()
         self.mixer = Mixer()
         self.launch_state = LaunchState.OFF
         #self.pressure_sensor = PressureSensor(print("pressure_sensor"))
         self.temperature_sensor = TemperatureSensor()
         self.heater = Heater()
-        self.temperature_sensor.set_callback(self.check_temperature_threshold)        
+        self.temperature_sensor.set_callback(self.check_temperature_threshold)
+        self.get_config_mode()      
 
     def start(self):
         if self.timer_duration == 0:
@@ -90,3 +89,17 @@ class Model():
                 self.heater.OFF()
             elif self.temperature_sensor.value < self.temperature.current_value and self.heater.state == HeaterState.OFF:
                 self.heater.ON()
+    
+    def set_config_mode(self):
+        print("Config set")
+
+    def get_config_mode(self):
+        print("Config get")
+
+    def save_mode(self):
+        self.set_config_mode()
+        pass
+
+    def load_mode(self):
+        pass
+        
