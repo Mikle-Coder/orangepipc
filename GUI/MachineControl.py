@@ -38,22 +38,17 @@ class Control(QObject):
         self.sensor_timer.timeout.connect(self.sensor_tick)
         self.sensor_timer.start()
 
-        self.set_values_start_up()
         self.create_all_handles()
+        self.set_values_start_up()
 
         self.view.signal_nav_button.click()
-        self.view.signal_button_0.click()
 
     def set_values_start_up(self):
-        self.view.frequyncy_value.setText(self.model.frequyncy.get_label_value())
-        self.view.power_value.setText(self.model.power.get_label_value())
-        self.view.temperature_value.setText(str(self.model.temperature.current_value))
-        self.view.timer_value.setText(self.model.timer_param.get_label_value())
-        self.view.timer_chosen_label.setText(self.model.timer_param.get_label_value())
-        self.view.temperature_chosen_label.setText(self.model.temperature.get_label_value())
-        self.view.frequyncy_chosen_label.setText(self.model.frequyncy.get_label_value())
-        self.view.power_chosen_label.setText(self.model.power.get_label_value())
-        self.view.current_countdown_label.setText(self.model.timer_param.get_label_value() + ":00")
+        self.model.signal_form.value_change_event.emit()
+        self.model.power.value_change_event.emit()
+        self.model.frequyncy.value_change_event.emit()
+        self.model.timer_param.value_change_event.emit()
+        self.model.temperature.value_change_event.emit()
 
     def create_all_handles(self):
         self.view.launch_button.holded.connect(lambda : self.handle_launch_button(True))
@@ -69,6 +64,7 @@ class Control(QObject):
         self.model.power.value_change_event.connect(lambda : self.view.power_value.setText(self.model.power.get_label_value()))
         self.model.power.value_change_event.connect(lambda: self.model.mixer.set_volume(self.model.power.current_value))
         self.model.frequyncy.value_change_event.connect(lambda : self.view.frequyncy_value.setText(self.model.frequyncy.get_label_value()))
+        self.model.signal_form.value_change_event.connect(lambda : self.update_signal_form())
 
         self.model.signal_form.value_change_event.connect(lambda : self.view.signal_chosen_label.setText(self.model.signal_form.get_label_value()))
         self.model.temperature.value_change_event.connect(lambda : self.view.temperature_chosen_label.setText(self.model.temperature.get_label_value()))
@@ -80,10 +76,10 @@ class Control(QObject):
         self.model.timer_param.value_change_event.connect(lambda : self.view.current_countdown_label.setText(self.model.timer_param.get_label_value() + ":00"))
     
     def create_parameter_ckick_handels(self):
-        self.view.signal_button_0.clicked.connect(lambda: self.shoose_signal_form(self.view.signal_button_0))
-        self.view.signal_button_1.clicked.connect(lambda: self.shoose_signal_form(self.view.signal_button_1))
-        self.view.signal_button_2.clicked.connect(lambda: self.shoose_signal_form(self.view.signal_button_2))
-        self.view.signal_button_3.clicked.connect(lambda: self.shoose_signal_form(self.view.signal_button_3))
+        self.view.signal_button_0.clicked.connect(lambda: self.model.signal_form.set_value(SignalForm.TRIANGLE))
+        self.view.signal_button_1.clicked.connect(lambda: self.model.signal_form.set_value(SignalForm.RECTANGULAR))
+        self.view.signal_button_2.clicked.connect(lambda: self.model.signal_form.set_value(SignalForm.SAWTOOTH))
+        self.view.signal_button_3.clicked.connect(lambda: self.model.signal_form.set_value(SignalForm.SINE))
 
         self.view.temperature_plus_button.pressed.connect(lambda: self.model.temperature.increment())
         self.view.temperature_minus_button.pressed.connect(lambda: self.model.temperature.dicrement())
@@ -138,20 +134,19 @@ class Control(QObject):
     def pause(self):
         self.timer.stop()
 
-    def shoose_signal_form(self, button):
+    def update_signal_form(self):
         self.view.set_button_state(button=self.model.current_signal_button, state=BUTTON_STATE.INACTIVE)
 
-        signal_form = None
-        if button == self.view.signal_button_0:
-            signal_form = SignalForm.TRIANGLE
-        elif button == self.view.signal_button_1:
-            signal_form = SignalForm.RECTANGULAR
-        elif button == self.view.signal_button_2:
-            signal_form = SignalForm.SAWTOOTH
-        elif button == self.view.signal_button_3:
-            signal_form = SignalForm.SINE
+        if  self.model.signal_form.current_value == SignalForm.TRIANGLE:
+            button = self.view.signal_button_0
+        elif  self.model.signal_form.current_value == SignalForm.RECTANGULAR:
+            button = self.view.signal_button_1
+        elif  self.model.signal_form.current_value == SignalForm.SAWTOOTH:
+            button = self.view.signal_button_2
+        else:
+            button = self.view.signal_button_3
 
-        self.model.set_active_signal_form(button, signal_form)
+        self.model.set_active_signal_button(button)
         self.view.set_button_state(button=self.model.current_signal_button, state=BUTTON_STATE.ACTIVE)
 
     def set_active_page(self, page):
@@ -182,8 +177,10 @@ class Control(QObject):
             self.view.set_launch_button(launch_button)
     
     def save_mode(self):
+        text = self.model.save_mode()
+        text = f'Режим {text} сохранён\n----------------\n{datetime.now().strftime("%d.%m.%Y %H:%M:%S")}'
+        self.view.set_save_label_text(text)
         self.view.unhide_save_file_layout()
-        self.model.save_mode()
 
     def load_mode():
         pass

@@ -7,8 +7,9 @@ import numpy as np
 from datetime import *
 from SignalGenerator import *
 from Parameter import *
-from Enums import LaunchState, HeaterState
+from Enums import LaunchState, HeaterState, SignalForm
 from MyButton import MyButton
+from Mode import *
 
 if sys.platform == 'win32':
     from MixerTest import Mixer
@@ -21,11 +22,14 @@ else:
 
 class Model():
     def __init__(self):
-        self.temperature = ParameterWithUnit(current_value=100, pitch = 1, unit="\u00b0C",min_value=1, max_value=125)
-        self.power = ParameterWithUnit(current_value=1, unit="%", pitch = 1,min_value=1, max_value=100)
-        self.frequyncy = ParameterWithUnit(current_value=5,pitch = 5, unit="kHz",min_value=5, max_value=100)
-        self.timer_param = TimerParameter(current_value = 45, pitch = 1, min_value = 1, max_value = 60*24)
-        self.signal_form = SignalParameter()
+        self.modeManager = ModeManager()
+        mode = self.modeManager.load_config()
+
+        self.temperature = ParameterWithUnit(current_value = mode.temperature, pitch = 1, unit="\u00b0C",min_value=1, max_value=125)
+        self.power = ParameterWithUnit(current_value = mode.power, unit="%", pitch = 1,min_value=1, max_value=100)
+        self.frequyncy = ParameterWithUnit(current_value = mode.frequyncy,pitch = 5, unit="kHz",min_value=5, max_value=100)
+        self.timer_param = TimerParameter(current_value = mode.timer_param, pitch = 1, min_value = 1, max_value = 60*24)
+        self.signal_form = SignalParameter(current_value = mode.signal_form)
 
         self.timer_duration = 0
         self.current_nav_button = MyButton(loop=False)
@@ -79,9 +83,8 @@ class Model():
     def set_active_nav_button(self, button):
         self.current_nav_button = button
 
-    def set_active_signal_form(self, button, signal_form):
+    def set_active_signal_button(self, button):
         self.current_signal_button = button
-        self.signal_form.set_value(signal_form)
     
     def check_temperature_threshold(self):
         if self.launch_state == LaunchState.ON:
@@ -89,16 +92,19 @@ class Model():
                 self.heater.OFF()
             elif self.temperature_sensor.value < self.temperature.current_value and self.heater.state == HeaterState.OFF:
                 self.heater.ON()
-    
-    def set_config_mode(self):
-        print("Config set")
 
     def get_config_mode(self):
         print("Config get")
 
     def save_mode(self):
-        self.set_config_mode()
-        pass
+        mode = Mode(self.temperature.current_value,
+                    self.power.current_value,
+                    self.frequyncy.current_value,
+                    self.timer_param.current_value,
+                    self.signal_form.current_value)
+        
+        self.modeManager.update_config(mode)
+        return self.modeManager.save_mode_to_file(mode)
 
     def load_mode(self):
         pass

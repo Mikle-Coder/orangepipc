@@ -1104,6 +1104,9 @@ class Ui_MainWindow(object):
         self.save_file_layout.setEnabled(True)
         self.save_file_layout.setHidden(False)
 
+    def set_save_label_text(self, text):
+        self.save_file_label.setText(text)
+
 #     def hide_load_file_layout(self):
 #         self.load_file_layout.setEnabled(False)
 #         self.load_file_layout.setHidden(True)
