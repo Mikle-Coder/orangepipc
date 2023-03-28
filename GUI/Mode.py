@@ -1,5 +1,7 @@
 from Enums import SignalForm
 import os
+from collections import namedtuple
+
 class Mode:
     def __init__(self, 
                 temperature : int,
@@ -15,8 +17,6 @@ class Mode:
         self.signal_form = signal_form
 
 class ModeManager:
-    # def __init__(self):
-    #     os.path
 
     def load_mode_from_file(self, file_path):
         config = {}
@@ -61,3 +61,14 @@ class ModeManager:
                     signal_form = SignalForm.SINE)
         self.update_config(mode)
         return mode
+    
+    def get_mode_list(self):
+        directory = "Modes"
+        files = os.listdir(directory)
+        File = namedtuple('File', ['name', 'full_path'])
+        result = []
+        for file in files:
+            name, ext = os.path.splitext(file)
+            full_path = os.path.join(directory, file)
+            result.append(File(name, full_path))
+        return tuple(result)

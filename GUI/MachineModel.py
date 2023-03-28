@@ -22,6 +22,8 @@ else:
 
 class Model():
     def __init__(self):
+        self.modes = None
+        self.current_mode_index = 0
         self.modeManager = ModeManager()
         mode = self.modeManager.load_config()
 
@@ -39,30 +41,25 @@ class Model():
         self.signal_generator = SignalGenerator()
         self.mixer = Mixer()
         self.launch_state = LaunchState.OFF
-        #self.pressure_sensor = PressureSensor(print("pressure_sensor"))
         self.temperature_sensor = TemperatureSensor()
         self.heater = Heater()
-        self.temperature_sensor.set_callback(self.check_temperature_threshold)
-        self.get_config_mode()      
+        self.temperature_sensor.set_callback(self.check_temperature_threshold) 
 
     def start(self):
         if self.timer_duration == 0:
             self.timer_duration = self.timer_param.current_value * 60
         self.launch_state = LaunchState.ON
-        #print("start")
         self.signal_generator.start(self.signal_form.current_value, self.frequyncy.current_value)
         self.heater.ON()
     
     def pause(self):
         self.launch_state = LaunchState.PAUSE
-        #print("pause")
         self.signal_generator.stop()
         self.heater.OFF()
 
     def stop(self):
         self.timer_duration = 0
         self.launch_state = LaunchState.OFF
-        #print("stop")
         self.signal_generator.stop()
         self.heater.OFF()
 
@@ -93,8 +90,12 @@ class Model():
             elif self.temperature_sensor.value < self.temperature.current_value and self.heater.state == HeaterState.OFF:
                 self.heater.ON()
 
-    def get_config_mode(self):
-        print("Config get")
+    def update_params(self, mode : Mode):
+        self.temperature.set_value(mode.temperature)
+        self.power.set_value(mode.power)
+        self.frequyncy.set_value(mode.frequyncy)
+        self.timer_param.set_value(mode.timer_param)
+        self.signal_form.set_value(mode.signal_form)
 
     def save_mode(self):
         mode = Mode(self.temperature.current_value,
@@ -104,8 +105,31 @@ class Model():
                     self.signal_form.current_value)
         
         self.modeManager.update_config(mode)
-        return self.modeManager.save_mode_to_file(mode)
+        return f'Режим {self.modeManager.save_mode_to_file(mode)}\nсохранён'
+    
+    def load_mode_list(self):
+        self.modes = self.modeManager.get_mode_list()
+
+    def clear_modes(self):
+        self.modes = None
+        self.current_mode_index = 0
+
+    def get_current_mode(self):
+        if len(self.modes) > 0: return f'Режим {self.modes[self.current_mode_index].name}'
+        else: return "Список пуст" 
+
+    def get_next_mode(self):
+        if not (self.current_mode_index + 1 > len(self.modes)-1) : self.current_mode_index += 1
+        return self.get_current_mode()
+
+    def get_previous_mode(self):
+        if not (self.current_mode_index - 1 < 0) : self.current_mode_index -= 1
+        return self.get_current_mode()
 
     def load_mode(self):
-        pass
+        if len(self.modes) > 0:
+            mode = self.modeManager.load_mode_from_file(self.modes[self.current_mode_index].full_path)
+            self.update_params(mode)
+            self.clear_modes()
+            self.modeManager.update_config(mode)
         

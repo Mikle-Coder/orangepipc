@@ -22,3 +22,7 @@ class LaunchState(Enum):
 class HeaterState(Enum):
     ON = 1
     OFF = -1
+
+class IndexButtons(Enum):
+    NEXT = 1
+    PREVIOUS = -1

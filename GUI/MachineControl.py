@@ -1,11 +1,10 @@
-
 import sys
 from PySide2.QtCore import QTimer, QTime, Signal, QObject, QElapsedTimer, QDateTime
 from datetime import *
 from SignalGenerator import *
-from GUI_2_1_1 import Ui_MainWindow
+from GUI_2_1_2 import Ui_MainWindow
 from MachineModel import Model
-from Enums import BUTTON_STATE, SignalForm, LaunchState
+from Enums import BUTTON_STATE, SignalForm, LaunchState, IndexButtons
 
 if sys.platform == 'win32':
     from MixerTest import *
@@ -93,8 +92,13 @@ class Control(QObject):
         self.view.timer_plus_button.pressed.connect(lambda : self.model.timer_param.increment())
         self.view.timer_minus_button.pressed.connect(lambda : self.model.timer_param.dicrement())
 
-        self.view.save_parameter_file_button.clicked.connect(lambda: self.save_mode())
-        self.view.ok_button.clicked.connect(lambda: self.view.hide_save_file_layout())
+        self.view.save_parameter_file_button.clicked.connect(lambda: self.save_mode_window_open())
+        self.view.ok_button_save.clicked.connect(lambda: self.save_mode_window_close())
+
+        self.view.load_parameter_file_button.clicked.connect(lambda: self.load_mode_window_open())
+        self.view.next_button.clicked.connect(lambda: self.load_mode_window_update(IndexButtons.NEXT))
+        self.view.previous_button.clicked.connect(lambda: self.load_mode_window_update(IndexButtons.PREVIOUS))
+        self.view.ok_button_load.clicked.connect(lambda: self.load_mode_window_close())
 
     def create_nav_button_click_enents(self):
         self.view.signal_nav_button.clicked.connect(lambda: self.swicth_page(self.view.signal_page, self.view.signal_nav_button))
@@ -104,15 +108,12 @@ class Control(QObject):
         self.view.launch_button.clicked.connect(lambda: self.swicth_page(self.view.launch_page, self.view.launch_button))
 
     def sensor_tick(self):
-        ##print("SensorTick")
         self.view.update_sensors(self.model.temperature_sensor.get_value() + self.model.temperature.unit)
-        #print("update")
 
     def update_countdown(self, countdown):
         self.view.current_countdown_label.setText(countdown)
 
-    def tick(self):
-        #print("tick")        
+    def tick(self):     
         if self.model.timer_duration == 0:
             self.stop()
             self.handle_launch_button(True)
@@ -176,14 +177,27 @@ class Control(QObject):
 
             self.view.set_launch_button(launch_button)
     
-    def save_mode(self):
+    def save_mode_window_open(self):
         text = self.model.save_mode()
-        text = f'Режим {text} сохранён\n----------------\n{datetime.now().strftime("%d.%m.%Y %H:%M:%S")}'
         self.view.set_save_label_text(text)
         self.view.unhide_save_file_layout()
 
-    def load_mode():
+    def save_mode_window_close(self):
+        self.view.hide_save_file_layout()
+
+    def load_mode_window_open(self):
+        self.model.load_mode_list()
+        self.load_mode_window_update()
+        self.view.unhide_load_file_layout()
+
+    def load_mode_window_update(self, index_button : IndexButtons = None):
+        name = None
+        if index_button == IndexButtons.NEXT: name = self.model.get_next_mode()
+        elif index_button == IndexButtons.PREVIOUS: name = self.model.get_previous_mode()
+        else: name = self.model.get_current_mode()
+        self.view.set_load_label_text(name)
+
+    def load_mode_window_close(self):
+        self.model.load_mode()
+        self.view.hide_load_file_layout()
         pass
-
-
-            
