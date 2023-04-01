@@ -67,8 +67,15 @@ class ModeManager:
         files = os.listdir(directory)
         File = namedtuple('File', ['name', 'full_path'])
         result = []
+    def get_mode_list(self):
+        directory = "Modes"
+        files = os.listdir(directory)
+        File = namedtuple('File', ['name', 'full_path'])
+        result = []
         for file in files:
             name, ext = os.path.splitext(file)
-            full_path = os.path.join(directory, file)
-            result.append(File(name, full_path))
+            if ext == ".mode":
+                full_path = os.path.join(directory, file)
+                result.append(File(name, full_path))
+        return tuple(result)
         return tuple(result)
