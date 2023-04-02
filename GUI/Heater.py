@@ -21,4 +21,4 @@ class Heater:
 	def OFF(self):
 		gpio.output(port.PA6, gpio.LOW)
 		self.state = HeaterState.OFF
-		print("OFF")
+		print("OFF")#6
