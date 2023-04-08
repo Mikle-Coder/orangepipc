@@ -344,6 +344,9 @@
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>3</number>
+       </property>
        <item>
         <widget class="QLabel" name="signal_frame_label">
          <property name="maximumSize">
@@ -354,8 +357,8 @@
          </property>
          <property name="font">
           <font>
-           <family>SF Pro Text</family>
-           <pointsize>16</pointsize>
+           <family>Tovari Sans</family>
+           <pointsize>19</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -413,8 +416,8 @@
             </property>
             <property name="font">
              <font>
-              <family>SF Pro Text</family>
-              <pointsize>14</pointsize>
+              <family>Tovari Sans</family>
+              <pointsize>17</pointsize>
              </font>
             </property>
             <property name="focusPolicy">
@@ -458,8 +461,8 @@
             </property>
             <property name="font">
              <font>
-              <family>SF Pro Text</family>
-              <pointsize>14</pointsize>
+              <family>Tovari Sans</family>
+              <pointsize>17</pointsize>
              </font>
             </property>
             <property name="focusPolicy">
@@ -503,8 +506,8 @@
             </property>
             <property name="font">
              <font>
-              <family>SF Pro Text</family>
-              <pointsize>14</pointsize>
+              <family>Tovari Sans</family>
+              <pointsize>17</pointsize>
              </font>
             </property>
             <property name="focusPolicy">
@@ -548,8 +551,8 @@
             </property>
             <property name="font">
              <font>
-              <family>SF Pro Text</family>
-              <pointsize>14</pointsize>
+              <family>Tovari Sans</family>
+              <pointsize>17</pointsize>
              </font>
             </property>
             <property name="focusPolicy">
@@ -615,15 +618,12 @@
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
-       <property name="spacing">
-        <number>0</number>
-       </property>
        <item>
         <widget class="QLabel" name="frequyncy_and_power_label">
          <property name="minimumSize">
           <size>
-           <width>224</width>
-           <height>26</height>
+           <width>225</width>
+           <height>20</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -634,8 +634,8 @@
          </property>
          <property name="font">
           <font>
-           <family>SF Pro Text</family>
-           <pointsize>15</pointsize>
+           <family>Tovari Sans</family>
+           <pointsize>19</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -646,7 +646,7 @@
 }</string>
          </property>
          <property name="text">
-          <string> Частота  | Мощность</string>
+          <string>  Частота    |  Мощность</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -754,8 +754,8 @@
                   </property>
                   <property name="font">
                    <font>
-                    <family>SF Pro Text</family>
-                    <pointsize>26</pointsize>
+                    <family>Tovari Sans</family>
+                    <pointsize>30</pointsize>
                     <weight>75</weight>
                     <bold>true</bold>
                    </font>
@@ -810,7 +810,7 @@ QPushButton:pressed{
                   </property>
                   <property name="font">
                    <font>
-                    <family>SF Pro Text</family>
+                    <family>Tovari Sans</family>
                     <pointsize>26</pointsize>
                     <weight>75</weight>
                     <bold>true</bold>
@@ -912,8 +912,8 @@ QPushButton:pressed{
                   </property>
                   <property name="font">
                    <font>
-                    <family>SF Pro Text</family>
-                    <pointsize>26</pointsize>
+                    <family>Tovari Sans</family>
+                    <pointsize>30</pointsize>
                     <weight>75</weight>
                     <bold>true</bold>
                    </font>
@@ -968,7 +968,7 @@ QPushButton:pressed{
                   </property>
                   <property name="font">
                    <font>
-                    <family>SF Pro Text</family>
+                    <family>Tovari Sans</family>
                     <pointsize>26</pointsize>
                     <weight>75</weight>
                     <bold>true</bold>
@@ -1030,8 +1030,8 @@ QPushButton:pressed{
       </property>
       <property name="font">
        <font>
-        <family>SF Pro Text</family>
-        <pointsize>20</pointsize>
+        <family>Tovari Sans</family>
+        <pointsize>24</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1064,8 +1064,8 @@ QPushButton:pressed{
       </property>
       <property name="font">
        <font>
-        <family>SF Pro Text</family>
-        <pointsize>20</pointsize>
+        <family>Tovari Sans</family>
+        <pointsize>24</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1133,8 +1133,8 @@ QPushButton:pressed{
          </property>
          <property name="font">
           <font>
-           <family>SF Pro Text</family>
-           <pointsize>15</pointsize>
+           <family>Tovari Sans</family>
+           <pointsize>19</pointsize>
           </font>
          </property>
          <property name="layoutDirection">
@@ -1148,7 +1148,7 @@ QPushButton:pressed{
 }</string>
          </property>
          <property name="text">
-          <string>Температура  °C</string>
+          <string>Температура °C</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -1207,8 +1207,8 @@ QPushButton:pressed{
                </property>
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
-                 <pointsize>26</pointsize>
+                 <family>Tovari Sans</family>
+                 <pointsize>30</pointsize>
                  <weight>75</weight>
                  <bold>true</bold>
                 </font>
@@ -1263,7 +1263,7 @@ QPushButton:pressed{
                </property>
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
+                 <family>Tovari Sans</family>
                  <pointsize>26</pointsize>
                  <weight>75</weight>
                  <bold>true</bold>
@@ -1322,14 +1322,13 @@ QPushButton:pressed{
              </property>
              <property name="font">
               <font>
-               <family>SF Pro Text</family>
-               <pointsize>19</pointsize>
+               <family>Tovari Sans</family>
+               <pointsize>24</pointsize>
               </font>
              </property>
              <property name="styleSheet">
               <string notr="true">QLabel{
 	background-color: none;
-	font-size: 19pt;
 	color: rgb(255, 255, 255);
 }</string>
              </property>
@@ -1433,8 +1432,8 @@ QPushButton:pressed{
          </property>
          <property name="font">
           <font>
-           <family>SF Pro Text</family>
-           <pointsize>15</pointsize>
+           <family>Tovari Sans</family>
+           <pointsize>19</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -1504,8 +1503,8 @@ QPushButton:pressed{
                </property>
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
-                 <pointsize>26</pointsize>
+                 <family>Tovari Sans</family>
+                 <pointsize>30</pointsize>
                  <weight>75</weight>
                  <bold>true</bold>
                 </font>
@@ -1560,7 +1559,7 @@ QPushButton:pressed{
                </property>
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
+                 <family>Tovari Sans</family>
                  <pointsize>26</pointsize>
                  <weight>75</weight>
                  <bold>true</bold>
@@ -1619,14 +1618,13 @@ QPushButton:pressed{
              </property>
              <property name="font">
               <font>
-               <family>SF Pro Text</family>
-               <pointsize>19</pointsize>
+               <family>Tovari Sans</family>
+               <pointsize>24</pointsize>
               </font>
              </property>
              <property name="styleSheet">
               <string notr="true">QLabel{
 	background-color: none;
-	font-size: 19pt;
 	color: rgb(255, 255, 255);
 }</string>
              </property>
@@ -1712,6 +1710,9 @@ QPushButton:pressed{
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QLabel" name="launch_frame_label">
          <property name="sizePolicy">
@@ -1734,8 +1735,8 @@ QPushButton:pressed{
          </property>
          <property name="font">
           <font>
-           <family>SF Pro Text</family>
-           <pointsize>15</pointsize>
+           <family>Tovari Sans</family>
+           <pointsize>19</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -1966,8 +1967,8 @@ QPushButton:pressed{
                </property>
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
-                 <pointsize>13</pointsize>
+                 <family>Tovari Sans</family>
+                 <pointsize>17</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -1997,8 +1998,8 @@ QPushButton:pressed{
                </property>
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
-                 <pointsize>13</pointsize>
+                 <family>Tovari Sans</family>
+                 <pointsize>17</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -2028,8 +2029,8 @@ QPushButton:pressed{
                </property>
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
-                 <pointsize>13</pointsize>
+                 <family>Tovari Sans</family>
+                 <pointsize>17</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -2053,8 +2054,8 @@ QPushButton:pressed{
               <widget class="QLabel" name="frequyncy_chosen_label">
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
-                 <pointsize>13</pointsize>
+                 <family>Tovari Sans</family>
+                 <pointsize>17</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -2078,8 +2079,8 @@ QPushButton:pressed{
               <widget class="QLabel" name="power_chosen_label">
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
-                 <pointsize>13</pointsize>
+                 <family>Tovari Sans</family>
+                 <pointsize>17</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -2159,16 +2160,16 @@ QPushButton:pressed{
    <widget class="QLabel" name="sensor_temperature_label">
     <property name="geometry">
      <rect>
-      <x>258</x>
+      <x>259</x>
       <y>208</y>
-      <width>62</width>
+      <width>61</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>SF Pro Text</family>
-      <pointsize>12</pointsize>
+      <family>Tovari Sans</family>
+      <pointsize>17</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -2181,7 +2182,7 @@ QPushButton:pressed{
 </string>
     </property>
     <property name="text">
-     <string>125 °C</string>
+     <string>125°C</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2190,16 +2191,16 @@ QPushButton:pressed{
    <widget class="QLabel" name="sensor_pressure_label">
     <property name="geometry">
      <rect>
-      <x>169</x>
+      <x>172</x>
       <y>208</y>
-      <width>87</width>
+      <width>85</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>SF Pro Text</family>
-      <pointsize>12</pointsize>
+      <family>Tovari Sans</family>
+      <pointsize>17</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -2221,7 +2222,7 @@ QPushButton:pressed{
    <widget class="QLabel" name="current_countdown_label">
     <property name="geometry">
      <rect>
-      <x>84</x>
+      <x>87</x>
       <y>208</y>
       <width>83</width>
       <height>31</height>
@@ -2229,8 +2230,8 @@ QPushButton:pressed{
     </property>
     <property name="font">
      <font>
-      <family>SF Pro Text</family>
-      <pointsize>12</pointsize>
+      <family>Tovari Sans</family>
+      <pointsize>17</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -2255,8 +2256,8 @@ QPushButton:pressed{
     </property>
     <property name="geometry">
      <rect>
-      <x>-240</x>
-      <y>190</y>
+      <x>10</x>
+      <y>0</y>
       <width>320</width>
       <height>240</height>
      </rect>
@@ -2335,10 +2336,16 @@ border: 0px solid rgba(0, 0, 0, 0);</string>
              <height>0</height>
             </size>
            </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>40</height>
+            </size>
+           </property>
            <property name="font">
             <font>
-             <family>MS Serif</family>
-             <pointsize>32</pointsize>
+             <family>Tovari Sans</family>
+             <pointsize>50</pointsize>
             </font>
            </property>
            <property name="styleSheet">
@@ -2370,7 +2377,7 @@ border: 0px solid rgba(0, 0, 0, 0);</string>
            </property>
            <property name="font">
             <font>
-             <family>MS Serif</family>
+             <family>Tovari Sans</family>
              <pointsize>18</pointsize>
             </font>
            </property>
@@ -2403,10 +2410,16 @@ border: 0px solid rgba(0, 0, 0, 0);</string>
              <height>0</height>
             </size>
            </property>
+           <property name="maximumSize">
+            <size>
+             <width>123233</width>
+             <height>40</height>
+            </size>
+           </property>
            <property name="font">
             <font>
-             <family>MS Serif</family>
-             <pointsize>32</pointsize>
+             <family>Tovari Sans</family>
+             <pointsize>50</pointsize>
             </font>
            </property>
            <property name="styleSheet">
@@ -2447,8 +2460,8 @@ border: 0px solid rgba(0, 0, 0, 0);</string>
         </property>
         <property name="font">
          <font>
-          <family>MS Serif</family>
-          <pointsize>15</pointsize>
+          <family>Tovari Sans</family>
+          <pointsize>17</pointsize>
          </font>
         </property>
         <property name="focusPolicy">
@@ -2486,8 +2499,8 @@ QPushButton:pressed{
     </property>
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>230</y>
+      <x>0</x>
+      <y>0</y>
       <width>320</width>
       <height>240</height>
      </rect>
@@ -2510,7 +2523,7 @@ QPushButton:pressed{
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
+       <y>20</y>
        <width>300</width>
        <height>180</height>
       </rect>
@@ -2592,7 +2605,7 @@ QPushButton:pressed{
            </property>
            <property name="font">
             <font>
-             <family>MS Serif</family>
+             <family>Tovari Sans</family>
              <pointsize>20</pointsize>
             </font>
            </property>
@@ -2641,7 +2654,7 @@ QPushButton:pressed{
            </property>
            <property name="font">
             <font>
-             <family>MS Serif</family>
+             <family>Tovari Sans</family>
              <pointsize>18</pointsize>
             </font>
            </property>
@@ -2655,9 +2668,9 @@ QPushButton:pressed{
 </string>
            </property>
            <property name="text">
-            <string>---------------
+            <string>-------------
 Режим M-001
----------------</string>
+-------------</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -2683,7 +2696,7 @@ QPushButton:pressed{
            </property>
            <property name="font">
             <font>
-             <family>MS Serif</family>
+             <family>Tovari Sans</family>
              <pointsize>20</pointsize>
             </font>
            </property>
@@ -2788,8 +2801,8 @@ QPushButton:pressed{
            </property>
            <property name="font">
             <font>
-             <family>MS Serif</family>
-             <pointsize>15</pointsize>
+             <family>Tovari Sans</family>
+             <pointsize>17</pointsize>
             </font>
            </property>
            <property name="focusPolicy">

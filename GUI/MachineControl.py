@@ -2,7 +2,7 @@ import sys
 from PySide2.QtCore import QTimer, QTime, Signal, QObject, QElapsedTimer, QDateTime
 from datetime import *
 from SignalGenerator import *
-from GUI_2_1_2 import Ui_MainWindow
+from GUI_2_1_2_1 import Ui_MainWindow
 from MachineModel import Model
 from Enums import BUTTON_STATE, SignalForm, LaunchState, IndexButtons
 

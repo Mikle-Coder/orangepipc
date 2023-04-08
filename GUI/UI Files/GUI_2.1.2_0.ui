@@ -307,7 +307,7 @@
      <string notr="true">background-color: rgba(0,0,0,0);</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="signal_page">
      <property name="styleSheet">
@@ -354,7 +354,7 @@
          </property>
          <property name="font">
           <font>
-           <family>SF Pro Text</family>
+           <family>MS Serif</family>
            <pointsize>16</pointsize>
           </font>
          </property>
@@ -413,8 +413,8 @@
             </property>
             <property name="font">
              <font>
-              <family>SF Pro Text</family>
-              <pointsize>14</pointsize>
+              <family>MS Serif</family>
+              <pointsize>15</pointsize>
              </font>
             </property>
             <property name="focusPolicy">
@@ -458,8 +458,8 @@
             </property>
             <property name="font">
              <font>
-              <family>SF Pro Text</family>
-              <pointsize>14</pointsize>
+              <family>MS Serif</family>
+              <pointsize>15</pointsize>
              </font>
             </property>
             <property name="focusPolicy">
@@ -503,8 +503,8 @@
             </property>
             <property name="font">
              <font>
-              <family>SF Pro Text</family>
-              <pointsize>14</pointsize>
+              <family>MS Serif</family>
+              <pointsize>15</pointsize>
              </font>
             </property>
             <property name="focusPolicy">
@@ -548,8 +548,8 @@
             </property>
             <property name="font">
              <font>
-              <family>SF Pro Text</family>
-              <pointsize>14</pointsize>
+              <family>MS Serif</family>
+              <pointsize>15</pointsize>
              </font>
             </property>
             <property name="focusPolicy">
@@ -615,15 +615,12 @@
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
-       <property name="spacing">
-        <number>0</number>
-       </property>
        <item>
         <widget class="QLabel" name="frequyncy_and_power_label">
          <property name="minimumSize">
           <size>
-           <width>224</width>
-           <height>26</height>
+           <width>0</width>
+           <height>20</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -634,8 +631,8 @@
          </property>
          <property name="font">
           <font>
-           <family>SF Pro Text</family>
-           <pointsize>15</pointsize>
+           <family>MS Serif</family>
+           <pointsize>16</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -646,7 +643,7 @@
 }</string>
          </property>
          <property name="text">
-          <string> Частота  | Мощность</string>
+          <string>   Частота    |  Мощность</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -754,7 +751,7 @@
                   </property>
                   <property name="font">
                    <font>
-                    <family>SF Pro Text</family>
+                    <family>Sitka Subheading</family>
                     <pointsize>26</pointsize>
                     <weight>75</weight>
                     <bold>true</bold>
@@ -810,7 +807,7 @@ QPushButton:pressed{
                   </property>
                   <property name="font">
                    <font>
-                    <family>SF Pro Text</family>
+                    <family>Sitka Subheading</family>
                     <pointsize>26</pointsize>
                     <weight>75</weight>
                     <bold>true</bold>
@@ -912,7 +909,7 @@ QPushButton:pressed{
                   </property>
                   <property name="font">
                    <font>
-                    <family>SF Pro Text</family>
+                    <family>Sitka Subheading</family>
                     <pointsize>26</pointsize>
                     <weight>75</weight>
                     <bold>true</bold>
@@ -968,7 +965,7 @@ QPushButton:pressed{
                   </property>
                   <property name="font">
                    <font>
-                    <family>SF Pro Text</family>
+                    <family>Sitka Subheading</family>
                     <pointsize>26</pointsize>
                     <weight>75</weight>
                     <bold>true</bold>
@@ -1030,7 +1027,7 @@ QPushButton:pressed{
       </property>
       <property name="font">
        <font>
-        <family>SF Pro Text</family>
+        <family>MS Serif</family>
         <pointsize>20</pointsize>
        </font>
       </property>
@@ -1064,7 +1061,7 @@ QPushButton:pressed{
       </property>
       <property name="font">
        <font>
-        <family>SF Pro Text</family>
+        <family>MS Serif</family>
         <pointsize>20</pointsize>
        </font>
       </property>
@@ -1133,8 +1130,8 @@ QPushButton:pressed{
          </property>
          <property name="font">
           <font>
-           <family>SF Pro Text</family>
-           <pointsize>15</pointsize>
+           <family>MS Serif</family>
+           <pointsize>16</pointsize>
           </font>
          </property>
          <property name="layoutDirection">
@@ -1207,7 +1204,7 @@ QPushButton:pressed{
                </property>
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
+                 <family>Sitka Subheading</family>
                  <pointsize>26</pointsize>
                  <weight>75</weight>
                  <bold>true</bold>
@@ -1263,7 +1260,7 @@ QPushButton:pressed{
                </property>
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
+                 <family>Sitka Subheading</family>
                  <pointsize>26</pointsize>
                  <weight>75</weight>
                  <bold>true</bold>
@@ -1322,7 +1319,7 @@ QPushButton:pressed{
              </property>
              <property name="font">
               <font>
-               <family>SF Pro Text</family>
+               <family>MS Serif</family>
                <pointsize>19</pointsize>
               </font>
              </property>
@@ -1433,8 +1430,8 @@ QPushButton:pressed{
          </property>
          <property name="font">
           <font>
-           <family>SF Pro Text</family>
-           <pointsize>15</pointsize>
+           <family>MS Serif</family>
+           <pointsize>16</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -1504,7 +1501,7 @@ QPushButton:pressed{
                </property>
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
+                 <family>Sitka Subheading</family>
                  <pointsize>26</pointsize>
                  <weight>75</weight>
                  <bold>true</bold>
@@ -1560,7 +1557,7 @@ QPushButton:pressed{
                </property>
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
+                 <family>Sitka Subheading</family>
                  <pointsize>26</pointsize>
                  <weight>75</weight>
                  <bold>true</bold>
@@ -1619,7 +1616,7 @@ QPushButton:pressed{
              </property>
              <property name="font">
               <font>
-               <family>SF Pro Text</family>
+               <family>MS Serif</family>
                <pointsize>19</pointsize>
               </font>
              </property>
@@ -1734,8 +1731,8 @@ QPushButton:pressed{
          </property>
          <property name="font">
           <font>
-           <family>SF Pro Text</family>
-           <pointsize>15</pointsize>
+           <family>MS Serif</family>
+           <pointsize>16</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -1966,8 +1963,8 @@ QPushButton:pressed{
                </property>
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
-                 <pointsize>13</pointsize>
+                 <family>MS Serif</family>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -1997,8 +1994,8 @@ QPushButton:pressed{
                </property>
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
-                 <pointsize>13</pointsize>
+                 <family>MS Serif</family>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -2028,8 +2025,8 @@ QPushButton:pressed{
                </property>
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
-                 <pointsize>13</pointsize>
+                 <family>MS Serif</family>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -2053,8 +2050,8 @@ QPushButton:pressed{
               <widget class="QLabel" name="frequyncy_chosen_label">
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
-                 <pointsize>13</pointsize>
+                 <family>MS Serif</family>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -2078,8 +2075,8 @@ QPushButton:pressed{
               <widget class="QLabel" name="power_chosen_label">
                <property name="font">
                 <font>
-                 <family>SF Pro Text</family>
-                 <pointsize>13</pointsize>
+                 <family>MS Serif</family>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -2159,16 +2156,16 @@ QPushButton:pressed{
    <widget class="QLabel" name="sensor_temperature_label">
     <property name="geometry">
      <rect>
-      <x>258</x>
+      <x>260</x>
       <y>208</y>
-      <width>62</width>
+      <width>60</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>SF Pro Text</family>
-      <pointsize>12</pointsize>
+      <family>MS Serif</family>
+      <pointsize>14</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -2190,16 +2187,16 @@ QPushButton:pressed{
    <widget class="QLabel" name="sensor_pressure_label">
     <property name="geometry">
      <rect>
-      <x>169</x>
+      <x>173</x>
       <y>208</y>
-      <width>87</width>
+      <width>85</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>SF Pro Text</family>
-      <pointsize>12</pointsize>
+      <family>MS Serif</family>
+      <pointsize>14</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -2221,7 +2218,7 @@ QPushButton:pressed{
    <widget class="QLabel" name="current_countdown_label">
     <property name="geometry">
      <rect>
-      <x>84</x>
+      <x>88</x>
       <y>208</y>
       <width>83</width>
       <height>31</height>
@@ -2229,8 +2226,8 @@ QPushButton:pressed{
     </property>
     <property name="font">
      <font>
-      <family>SF Pro Text</family>
-      <pointsize>12</pointsize>
+      <family>MS Serif</family>
+      <pointsize>14</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -2486,8 +2483,8 @@ QPushButton:pressed{
     </property>
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>230</y>
+      <x>280</x>
+      <y>180</y>
       <width>320</width>
       <height>240</height>
      </rect>

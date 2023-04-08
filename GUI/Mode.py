@@ -17,6 +17,10 @@ class Mode:
         self.signal_form = signal_form
 
 class ModeManager:
+    def __init__(self):
+        newpath = 'Modes'
+        if not os.path.exists(newpath):
+            os.makedirs(newpath)
 
     def load_mode_from_file(self, file_path):
         config = {}
@@ -67,15 +71,9 @@ class ModeManager:
         files = os.listdir(directory)
         File = namedtuple('File', ['name', 'full_path'])
         result = []
-    def get_mode_list(self):
-        directory = "Modes"
-        files = os.listdir(directory)
-        File = namedtuple('File', ['name', 'full_path'])
-        result = []
         for file in files:
             name, ext = os.path.splitext(file)
             if ext == ".mode":
                 full_path = os.path.join(directory, file)
                 result.append(File(name, full_path))
-        return tuple(result)
         return tuple(result)
