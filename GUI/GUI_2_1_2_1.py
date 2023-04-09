@@ -1308,6 +1308,7 @@ class Ui_MainWindow(object):
 #       Кнопки с фрагментом 'launch_button = QPushButton(' заменить на 'launch_button = MyButton(loop = False, parent = '
 #       Кнопки с регулярным выражением '\d = QPushButton\(' заменить на '\d =MyButton(loop = False, parent = ' заменив \d на оригинальную цифру
 #       Строку с фрагментом 'setCentralWidget' закоментировать или удалить вовсе
+#       Фрагмент '../../../GUI/' заменить на ''
 
         self.__set_animation_slide()
         self.hide_save_file_layout()
