@@ -28,8 +28,8 @@ class PinController:
 
 class Heater(PinController):
 	def __init__(self):
-		super.__init__(port.PA10)
+		super().__init__(port = port.PA10)
 
 class UltrasonicEmitter(PinController):
 	def __init__(self):
-		super.__init__(port.PA20)
+		super().__init__(port = port.PA20)
