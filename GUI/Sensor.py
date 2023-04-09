@@ -1,5 +1,6 @@
 import threading
 from w1thermsensor import W1ThermSensor as TempSen
+from bme280 import getPressure
 from abc import ABC, abstractmethod
 import time
 
@@ -21,7 +22,6 @@ class Sensor(ABC):
         pass
 
 class TemperatureSensor(Sensor):
-
     def __init__(self):
         super().__init__()
         self.temperature = TempSen()
@@ -40,14 +40,23 @@ class TemperatureSensor(Sensor):
             if self.value != new_value:
                 self.value = new_value
             time.sleep(0.5)
-#----------------------------------------------------------
-#Добавить датчик давления и переписать класс PressureSensor
 
-# class PressureSensor(Sensor):
-# 	def __init__(self, update_callback):
-#         super().__init__(update_callback)
-#         self.value = 0.0
-# 		self.__sensor = TempSen()
-# 	def get_value(self):
-# 		return str(int(self.__sensor.get_temperature()))
-#----------------------------------------------------------
+class PressureSensor(Sensor):
+    def __init__(self):
+        super().__init__()
+        self.update_thread = threading.Thread(target=self.update_value, daemon=True)
+        self.callback = self.callback_
+        self.update_thread.start()
+
+    def get_value(self):
+        return str(int(self.value))
+    
+    def update_value(self):
+        while True:
+            new_value = getPressure()
+            if self.value != new_value:
+                self.value = new_value
+            time.sleep(0.5)
+            
+    def callback_(self):
+        pass

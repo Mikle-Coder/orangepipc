@@ -1373,8 +1373,9 @@ class Ui_MainWindow(object):
     def set_active_page(self, page):
         self.pages.setCurrentWidget(page)
 
-    def update_sensors(self, temperature):
+    def update_sensors(self, temperature, pressure):
         self.sensor_temperature_label.setText(temperature)
+        self.sensor_pressure_label.setText(pressure)
 
     def set_launch_button(self, launch_button : LaunchState):   
         self.launch_button.setStyleSheet(launch_button.value)

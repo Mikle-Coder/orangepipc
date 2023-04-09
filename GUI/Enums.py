@@ -19,7 +19,7 @@ class LaunchState(Enum):
     OFF = u"QPushButton { background-color: rgb(234, 47, 47); color: rgb(42, 225, 0); border: none; border-radius: 10px; color: white}"
     PAUSE = u"QPushButton { background-color: rgb(236, 220, 0); color: rgb(42, 225, 0); border: none; border-radius: 10px; color: white}"
 
-class HeaterState(Enum):
+class ControllerState(Enum):
     ON = 1
     OFF = -1
 

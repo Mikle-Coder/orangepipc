@@ -7,18 +7,18 @@ import numpy as np
 from datetime import *
 from SignalGenerator import *
 from Parameter import *
-from Enums import LaunchState, HeaterState, SignalForm
+from Enums import LaunchState, ControllerState, SignalForm
 from MyButton import MyButton
 from Mode import *
 
 if sys.platform == 'win32':
     from MixerTest import Mixer
-    from SensorTest import TemperatureSensor#, PressureSensor
-    from HeaterTest import Heater
+    from SensorTest import TemperatureSensor, PressureSensor
+    from PinControlTest import Heater, UltrasonicEmitter
 else:
     from Mixer import Mixer
-    from Sensor import TemperatureSensor#, PressureSensor
-    from Heater import Heater
+    from Sensor import TemperatureSensor, PressureSensor
+    from PinControl import Heater, UltrasonicEmitter
 
 class Model():
     def __init__(self):
@@ -42,26 +42,37 @@ class Model():
         self.mixer = Mixer()
         self.launch_state = LaunchState.OFF
         self.temperature_sensor = TemperatureSensor()
+        self.pressure_sensor = PressureSensor()
         self.heater = Heater()
-        self.temperature_sensor.set_callback(self.check_temperature_threshold) 
+        self.ultrasonicEmitter = UltrasonicEmitter()
+        self.temperature_sensor.set_callback(self.check_temperature_threshold)
+
+    def __frequyncy_is_40__(self):
+        return self.frequyncy.current_value == 40
 
     def start(self):
         if self.timer_duration == 0:
             self.timer_duration = self.timer_param.current_value * 60
         self.launch_state = LaunchState.ON
         self.signal_generator.start(self.signal_form.current_value, self.frequyncy.current_value)
-        self.heater.ON()
+        if self.__frequyncy_is_40__():
+            self.ultrasonicEmitter.ON()
+            self.heater.ON()
     
     def pause(self):
         self.launch_state = LaunchState.PAUSE
         self.signal_generator.stop()
-        self.heater.OFF()
+        if self.__frequyncy_is_40__():
+            self.ultrasonicEmitter.OFF()
+            self.heater.OFF()
 
     def stop(self):
         self.timer_duration = 0
         self.launch_state = LaunchState.OFF
         self.signal_generator.stop()
-        self.heater.OFF()
+        if self.__frequyncy_is_40__():
+            self.ultrasonicEmitter.OFF()
+            self.heater.OFF()
 
     def handle_launch_button(self, hold : bool = False):
         if hold:
@@ -85,9 +96,9 @@ class Model():
     
     def check_temperature_threshold(self):
         if self.launch_state == LaunchState.ON:
-            if self.temperature_sensor.value >= self.temperature.current_value and self.heater.state == HeaterState.ON:
+            if self.temperature_sensor.value >= self.temperature.current_value and self.heater.state == ControllerState.ON and self.__frequyncy_is_40__():
                 self.heater.OFF()
-            elif self.temperature_sensor.value < self.temperature.current_value and self.heater.state == HeaterState.OFF:
+            elif self.temperature_sensor.value < self.temperature.current_value and self.heater.state == ControllerState.OFF and self.__frequyncy_is_40__():
                 self.heater.ON()
 
     def update_params(self, mode : Mode):

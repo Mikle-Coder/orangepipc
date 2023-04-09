@@ -35,7 +35,7 @@ def readBME280ID(addr=DEVICE):
   (chip_id, chip_version) = bus.read_i2c_block_data(addr, REG_ID, 2)
   return (chip_id, chip_version)
 
-def readBME280All(addr=DEVICE):
+def getPressure(addr=DEVICE):
   # Register Addresses
   REG_DATA = 0xF7
   REG_CONTROL = 0xF4
@@ -133,19 +133,19 @@ def readBME280All(addr=DEVICE):
   elif humidity < 0:
     humidity = 0
 
-  return temperature/100.0,pressure/100.0,humidity
+  return pressure/100.0#temperature/100.0,pressure/100.0,humidity
 
-def main():
+# def main():
 
-  (chip_id, chip_version) = readBME280ID()
-  print ("Chip ID     :", chip_id)
-  print ("Version     :", chip_version)
+#   (chip_id, chip_version) = readBME280ID()
+#   print ("Chip ID     :", chip_id)
+#   print ("Version     :", chip_version)
 
-  temperature,pressure,humidity = readBME280All()
+#   temperature,pressure,humidity = readBME280All()
 
-  print ("Temperature : ", temperature, "C")
-  print ("Pressure : ", pressure, "hPa")
-  print ("Humidity : ", humidity, "%")
+#   print ("Temperature : ", temperature, "C")
+#   print ("Pressure : ", pressure, "hPa")
+#   print ("Humidity : ", humidity, "%")
 
-if __name__=="__main__":
-   main()
+# if __name__=="__main__":
+#    main()

@@ -7,13 +7,13 @@ from MachineModel import Model
 from Enums import BUTTON_STATE, SignalForm, LaunchState, IndexButtons
 
 if sys.platform == 'win32':
-    from MixerTest import *
-    from SensorTest import *
-    from HeaterTest import * 
+    from MixerTest import Mixer
+    from SensorTest import TemperatureSensor#, PressureSensor
+    from PinControlTest import Heater, UltrasonicEmitter
 else:
-    from Mixer import *
-    from Sensor import *
-    from Heater import * 
+    from Mixer import Mixer
+    from Sensor import TemperatureSensor#, PressureSensor
+    from PinControl import Heater, UltrasonicEmitter
 
 class Control(QObject):
     start_event = Signal()
@@ -108,7 +108,7 @@ class Control(QObject):
         self.view.launch_button.clicked.connect(lambda: self.swicth_page(self.view.launch_page, self.view.launch_button))
 
     def sensor_tick(self):
-        self.view.update_sensors(self.model.temperature_sensor.get_value() + self.model.temperature.unit)
+        self.view.update_sensors(self.model.temperature_sensor.get_value() + self.model.temperature.unit, self.model.pressure_sensor.get_value() + "hPa")
 
     def update_countdown(self, countdown):
         self.view.current_countdown_label.setText(countdown)
