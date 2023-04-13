@@ -6,6 +6,8 @@ from Enums import ControllerState
 class PinController:
 	def __new__(cls):
 		gpio.init()
+		gpio.setcfg(port.PG7, gpio.OUTPUT)
+		gpio.output(port.PG7, gpio.HIGH)
 		return super().__new__(cls)
 	
 	def __init__(self, port : port):
