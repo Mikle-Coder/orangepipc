@@ -49,7 +49,7 @@ class PressureSensor(Sensor):
         self.update_thread.start()
 
     def get_value(self):
-        return str(int(self.value))
+        return '{:.2f}'.format(self.value-1000)
     
     def update_value(self):
         while True:
